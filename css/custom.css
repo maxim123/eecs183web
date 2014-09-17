@@ -26,6 +26,11 @@ body
 	height: 200px;
 }
 
+h1
+{
+	font-weight: 400;
+}
+
 #wrapper.custom {
 	padding-left: 160px;
 }
@@ -316,3 +321,45 @@ a:focus:hover
     -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
     transform: rotate(180deg);
 }
+
+#application
+{
+	text-align: center;
+	font-weight: 300;
+	margin-top: 40px;
+}
+
+#application #positions
+{
+	font-size: 24px;
+	list-style-type: none;
+	padding: 0;
+	margin-top: 40px;
+	display: inline-block;
+}
+
+#application #positions a, a:hover
+{
+	color: black;
+	text-decoration: none;
+}
+
+#application #positions li
+{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 380px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+}
+
+#application #positions li:hover
+{
+	background: #dee8ec;
+}
+

@@ -69,7 +69,8 @@ function loadPage()
 		'183style': '183style',
 		'piazza': 'Piazza',
 		'oh': 'Office Hours',
-		'logout': 'Log Out'
+		'logout': 'Log Out',
+		'apply': 'Application'
 	};
 	
 	if (page == 'projects')
