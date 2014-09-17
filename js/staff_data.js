@@ -258,7 +258,7 @@ var _instructors = {
 
     professors: [
         new Instructor("Mary Lou", "Dorf", true, [], [], "", "Ph.D.", "mdorf@umich.edu", "", [1, 2], []),
-        new Instructor("Jeremy", "Gibson", false, [], [], "", "M.E.T.", "gameprof@umich.edu", "", [0], []),
+        new Instructor("Jeremy", "Gibson", true, [], [], "", "M.E.T.", "gameprof@umich.edu", "", [0], []),
         new Instructor("Bill", "Arthur", true, [], [], "", "Ph.D. Candidate", "warthur@umich.edu", "", [3], []),
     ],
 
