@@ -170,14 +170,14 @@ var _relativeImagePath = "img/staff/",
             days: ["Tuesday", ],
             startTime: "12:00:00",
             endTime: "13:00:00",
-            room: "TBD"
+            room: "1650 CHEM"
         },
          {
             sectionNumber: "031",
             days: ["Thursday", ],
             startTime: "13:00:00",
             endTime: "14:00:00",
-            room: "1300 CHEM"
+            room: "1650 CHEM"
         },
         {
             sectionNumber: "032",
