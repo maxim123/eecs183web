@@ -274,7 +274,7 @@ var _instructors = {
         new Instructor("Jessica", "Wu", true, ["Computer Science"], ["Japanese", "Physics"], "W'16", "", "jesswu@umich.edu", "", [], [13]),
         new Instructor("Lisa", "Dion", true, ["Computer Science"], [], "2nd year Ph.D.", "", "lisadion@umich.edu", "", [], [2]),
         new Instructor("Madeline", "Andrew", true, ["Computer Science"], [], "W'16", "", "madclare@umich.edu", "https://github.com/madclare", [], [15]),
-        new Instructor("Madeline", "Enders", true, ["Computer Science", "Cello Performance"], [], "W'17", "", "endremad@umich.edu", "", [], [10]),
+        new Instructor("Madeline", "Endres", true, ["Computer Science", "Cello Performance"], [], "W'17", "", "endremad@umich.edu", "", [], [10]),
         new Instructor("Maxim", "Aleksa", true, ["Computer Science", "Romance Languages and Literatures",], [], "W'17", "", "maximal@umich.edu", "http://umich.edu/~maximal", [], [7]),
         new Instructor("Mike", "Vianueva", true, ["Computer Science", "History"], ["German"], "W'15", "", "vianuevm@umich.edu", "https://github.com/vianuevm", [], [12]),
         new Instructor("Reed", "Coke", true, ["Computer Science", "Linguistics"], [], "2nd year Ph.D.", "", "reedcoke@umich.edu", "", [], [3, 19]),
