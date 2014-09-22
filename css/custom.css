@@ -19,11 +19,15 @@ body
 }
 
 .hero-unit.custom {
-	background-image: url('../img/header.png');
-	background-size: auto 100%;
-	background-repeat: no-repeat;
-	background-position: center; 
-	height: 200px;
+	background: url('../img/6.jpg') no-repeat 0 0;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	background-position: center center;
+	height: 320px;
+	padding: 0;
+	margin: 0;
 }
 
 h1
@@ -90,7 +94,7 @@ h1
 
 .content-wrapper
 {
-	padding: 16px;
+	padding: 8px 16px 16px 16px;
 }
 
 .container-fluid.custom {
