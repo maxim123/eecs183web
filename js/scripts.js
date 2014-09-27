@@ -7,6 +7,7 @@ function createElement(elementType)
 $(document).ready(function ()
 {
 	loadPage();
+	loadStaffContent();
 
 	$("#sidebar-wrapper li").click(function()
 	{
@@ -55,6 +56,7 @@ function loadPage()
     LAST_LIVE_POPOVER = undefined; // reset upon page change
     IS_MOUSE_IN_POPOVER = false;
 	var page = window.location.hash.substring(1);
+	var path = 'pages/';
 	
 	// TODO: dynamically figure out which pages are available 
 	var validPages = {
@@ -70,8 +72,16 @@ function loadPage()
 		'piazza': 'Piazza',
 		'oh': 'Office Hours',
 		'logout': 'Log Out',
-		'apply': 'Application'
+		'apply': 'Application',
+		'staff-files': 'Staff Files'
 	};
+	
+	// staff content
+	if (page.indexOf('staff-') == 0)
+	{
+		path = 'staff-only/';
+		/* $('#staff-only-link').click(); */
+	}
 	
 	if (page == 'projects')
 	{
@@ -93,10 +103,10 @@ function loadPage()
 	{
 		document.title += ': ' + validPages[page];
 	}
-	
+	console.log(path + page + '.html');
 	$("#sidebar-wrapper li").removeClass("active");
 	$("#" + page + "-button").addClass("active");
-	$('#content').load('pages/' + page + '.html', function (response, status, xhr)
+	$('#content').load(path + page + '.html', function (response, status, xhr)
 	{
 	    if (page == "staff" && status == "success")
 	    {
@@ -145,6 +155,16 @@ function removeProgressWheel()
 	$('.progress-wheel').remove();
 }
 
+function loadStaffContent()
+{
+	$.get('staff-only/navigation.html', function(data)
+	{
+		$(data).insertBefore('#logout-button');
+		$('#staff-only-button').hide().slideDown();
+		
+	});
+	
+}
 
 
 
