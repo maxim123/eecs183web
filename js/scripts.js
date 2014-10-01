@@ -73,6 +73,7 @@ function loadPage()
 		'oh': 'Office Hours',
 		'logout': 'Log Out',
 		'apply': 'Application',
+		'tutoring': 'Tutoring',
 		'staff-files': 'Staff Files'
 	};
 	
@@ -164,7 +165,12 @@ function loadStaffContent()
 		
 	});
 	
+	$.get('staff-only/project-list.html', function(data) {
+		$('#project-list').append(data);
+	});
+	
 }
+
 
 
 
