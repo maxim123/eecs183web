@@ -26,6 +26,20 @@ $(document).ready(function ()
         document.cookie = 'cosign=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
         window.location.href = 'https://weblogin.umich.edu/cgi-bin/logout?https://www.umich.edu/~eecs183/';
 	})
+	
+	$(window).resize(function()
+	{
+		if ($(window).width() < 1474)
+		{
+			$('#tutoring-calendar').height($(window).height() - 52);
+		}
+		else
+		{
+			$('#tutoring-calendar').height($(window).height() - 67);
+		}
+		
+		$('#hours-calendar').height($(window).height() - 168);
+	});
 });
 
 function changePage()

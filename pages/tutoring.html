@@ -4,11 +4,11 @@
 	<h1>Tutoring</h1>
 	
 	<p>You must be signed into Google using your umich email address.</p>
-	<p>Click on an open time to sign up. To cancel a tutoring session, delete the <br>event from your own Google calendar and let the tutor know via email.</p>
+	<p>Click on an open time to sign up. Add the topic you'd like to get more comfortable with to the description.<br>To cancel a tutoring session, delete the event from your own Google calendar and let the tutor know via email.</p>
 </div>
 <div id="tutoring">
 	<div class="progress-wheel progress-wheel-low">
 		<i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
 	</div>
-	<iframe id="tutoring-calendar" onload="removeProgressWheel(); $('#tutoring-calendar').height($(window).height() - 40);" width="100%" height="100%" frameborder="0" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" src="https://www.google.com/calendar/selfsched?sstoken=UUVhMFBuVldrdHJjfGRlZmF1bHR8ZmM4MjNlZGM0MzIxMDUyZjU1ZDg4MjNhYzZlNzE3NDc"></iframe>
+	<iframe id="tutoring-calendar" onload="removeProgressWheel(); if ($(window).width() < 1474) { $('#tutoring-calendar').height($(window).height() - 52);} else { $('#tutoring-calendar').height($(window).height() - 67); }" width="100%" height="100%" frameborder="0" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" src="https://www.google.com/calendar/selfsched?sstoken=UUVhMFBuVldrdHJjfGRlZmF1bHR8ZmM4MjNlZGM0MzIxMDUyZjU1ZDg4MjNhYzZlNzE3NDc"></iframe>
 </div>
