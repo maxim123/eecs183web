@@ -40,6 +40,21 @@ $(document).ready(function ()
 		
 		$('#hours-calendar').height($(window).height() - 168);
 	});
+	
+	// cookies
+	if ($.cookie("eecs183") == null)
+	{
+		// alert("Project 3 tutorial is tomorrow (Sunday) at 6 p.m. in 1800 CHEM");
+		$('#announcement-project3').modal('show');
+		$.cookie("eecs183", "project3tutorial", {expires: 7});
+	}
+	
+	
+	// track attendance
+	$('.project3tutorial-button').on('click', function() {
+		ga('send', 'event', 'project3tutorial', $(this).html());
+		$('.project3tutorial-button').modal('hide');
+	});
 });
 
 function changePage()
