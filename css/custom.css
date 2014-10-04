@@ -223,7 +223,7 @@ h1
 
 #project-tile
 {
-	padding-top: 24px;
+	padding-top: 8px;
 	background: #e26f6d;
 }
 
@@ -231,6 +231,21 @@ h1
 {
 	padding-top: 8px;
 	background: #78c4c5;
+}
+
+#announcement-banner
+{
+	height: 40px;
+	text-align: center;
+	background: #CF789A;
+	color: white;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+	margin: 8px;
+	padding: 10px;
 }
 
 @media (max-width: 855px)
