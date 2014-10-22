@@ -41,20 +41,24 @@ $(document).ready(function ()
 		$('#hours-calendar').height($(window).height() - 168);
 	});
 	
-	// cookies
-	if ($.cookie("eecs183") == null)
+	
+// cookies
+/*
+	if ($.cookie("exam1") == null)
 	{
 		// alert("Project 3 tutorial is tomorrow (Sunday) at 6 p.m. in 1800 CHEM");
-		$('#announcement-project3').modal('show');
-		$.cookie("eecs183", "project3tutorial", {expires: 7});
+		$('#announcement-exam1-review').modal('show');
 	}
 	
 	
 	// track attendance
-	$('.project3tutorial-button').on('click', function() {
-		ga('send', 'event', 'project3tutorial', $(this).html());
-		$('.project3tutorial-button').modal('hide');
+	$('.exam1-review').on('click', function() {
+		$.cookie("exam1", "announcement", {expires: 7});
+		ga('send', 'event', 'exam1-review', $(this).html());
+		$('#announcement-exam1-review').modal('hide');
 	});
+*/
+
 });
 
 function changePage()
@@ -102,6 +106,7 @@ function loadPage()
 		'oh': 'Office Hours',
 		'logout': 'Log Out',
 		'apply': 'Application',
+		'tutorials': 'Tutorials',
 		'tutoring': 'Tutoring',
 		'staff-files': 'Staff Files'
 	};
@@ -177,7 +182,24 @@ function loadPage()
             	$(".img-wrapper", this).popover("toggle");
             });
         }
-	});	
+        else if (page == "tutorials" && status == "success")
+        {
+	        /*
+var tag = $('#tutorials').createElement('script');
+	        tag.src = "https://www.youtube.com/player_api";
+	        var firstScriptTag = $('#tutorials').getElementsByTagName('script')[0];
+	        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	        var player;
+	        function onYouTubePlayerAPIReady() {
+	            tutorial1Player = new YT.Player('tutorial1-player', {
+	                height: '720',
+	                width: '1280',
+	                videoId: 'yzpXIV4Lrk4'
+	            });
+	        }
+*/
+        }
+	});
 }
 
 function removeProgressWheel()

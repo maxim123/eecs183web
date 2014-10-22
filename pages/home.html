@@ -41,22 +41,58 @@
 	<div id="syllabusRow" class="row">
 	    <div class="col-sm-6">
 	    	<div class="row tile-announcement-row">
-		    	<div id="announcement-banner">
-		    		<p>Project 3 tutorial tomorrow at 6 p.m. in 1800 CHEM</p>
+		    	<!--
+<div id="announcement-banner">
+		    		<p>Project 3 tutorial tonight at 6 p.m. in 1800 CHEM</p>
 		    	</div>
+-->
+<!--
 	    		<div class="col-sm-6 col-xs-12 tile-announcement-wrapper">
-	    			<a href="https://www.umich.edu/~eecs183/projects/project3/project3.html" target="_blank">
+	    			<a href="#tutorials">
+	    				<div id="tutorial-tile" class="tile-announcement">
+				    		<h2>Missed Project 3<br>tutorial?</h2>
+				    		<p><u>Watch</u></p>
+	    				</div>
+	    			</a>
+	    		</div>
+-->
+<!--
+				<div class="col-sm-6 col-xs-12 tile-announcement-wrapper">
+	    			<a href="#calendar" onClick="ga('send', 'event', 'link', 'click on No Lecture Wednesday', 'home');">
+	    				<div id="review-tile" class="tile-announcement">
+				    		<h2>No Lecture Today</h2>
+				    		<p><br>Lectures resume on&nbsp;Wednesday</p>
+	    				</div>
+	    			</a>
+	    		</div>
+-->
+
+	    		<div class="col-sm-6 col-xs-12 tile-announcement-wrapper">
+	    			<a href="https://www.umich.edu/~eecs183/projects/project4/project4.html" target="_blank" onClick="ga('send', 'event', 'link', 'click on Project 4 spec', 'home');">
 	    				<div id="project-tile" class="tile-announcement">
 	    					<p class="tile-icon">
 	    						<i class="fa fa-file-code-o fa-3x"></i>
 	    					</p>
-				    		<h2>Project 3</h2>
-				    		<p>due 10/10 at 6 p.m.</p>
-				    		<p>Tutorial tomorrow at 6 p.m.</p>
+				    		<h2>Project 4</h2>
+				    		<p>due 10/31 at 6 p.m.</p>
 	    				</div>
 	    			</a>
 	    		</div>
-	    		<div class="col-sm-6 col-xs-12 tile-announcement-wrapper">
+
+				<div class="col-sm-6 col-xs-12 tile-announcement-wrapper">
+	    			<a href="#gradebook" onClick="ga('send', 'event', 'link', 'click on Exam 1 FR grades', 'home');">
+	    				<div id="exam-tile" class="tile-announcement">
+	    					<p class="tile-icon">
+	    						<i class="fa fa-file-text-o fa-3x"></i>
+	    					</p>
+				    		<h2>Exam 1</h2>
+				    		<p>Pick&nbsp;up&nbsp;in discussion&nbsp;sections this&nbsp;week</p>
+				    		<p><u>View scores</u></p>
+	    				</div>
+	    			</a>
+	    		</div>
+	    		<!--
+<div class="col-sm-6 col-xs-12 tile-announcement-wrapper">
 	    			<a href="http://docs.google.com/a/umich.edu/forms/d/1i0hemIvK3_N7sXI-XGzwjPmdq1cMR7rEXIIdlxKtaZM/viewform" target="_blank" onClick="ga('send', 'event', 'link', 'click on Alternate Exam 1 form', 'home');">
 	    				<div id="exam-tile" class="tile-announcement">
 	    					<p class="tile-icon">
@@ -68,6 +104,7 @@
 	    				</div>
 	    			</a>
 	    		</div>
+-->
 	    	</div>
 	    	<div class="announcement">
 <!--
@@ -77,6 +114,7 @@
 	    	</div>
 	        <h3>Links</h3>
 	        <ul>
+	        	<li><a href="https://www.umich.edu/~eecs183/exams/exam1/exam1.html" target="_blank">About Exam 1</a></li>
 	        	<li><a href="http://umich.edu/~eecs183/docs/course_policies.html" target="_blank">Course Policies</a></li>
 	        	<li><a href="#iclicker" data-toggle="modal" data-target="#iclicker-modal">i>clicker Registration</a></li>
 	        	
@@ -102,9 +140,11 @@
 	        	<li><a href="https://www.umich.edu/~eecs183/docs/getting_started_with_visual_studio.html" target="_blank">Getting Started with Visual Studio (Windows)</a></li>
 	        </ul>
 	    </div> 
-	    <div id="deadlines" class="col-sm-6" style="margin-top: 15px;">
+	    <div id="deadlines-wrapper" class="col-sm-6">
+	    	<div id="deadlines">
 			<p>Deadlines are closer than they appear!</p>
-			<iframe src="https://www.google.com/calendar/embed?showNav=0&amp;showDate=0&showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=AGENDA&amp;height=400&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=umich.edu_dac424h51ravetp18h75u695ds%40group.calendar.google.com&amp;color=%23A32929&amp;ctz=America%2FNew_York" style=" border-width:0 " width="100%" height="350" frameborder="0" scrolling="no"></iframe>
+				<iframe src="https://www.google.com/calendar/embed?showNav=0&amp;showDate=0&showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=AGENDA&amp;height=400&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=umich.edu_dac424h51ravetp18h75u695ds%40group.calendar.google.com&amp;color=%23A32929&amp;ctz=America%2FNew_York" style=" border-width:0 " width="100%" height="350" frameborder="0" scrolling="no"></iframe>
+	    	</div>
 		</div>
 	</div>
 </div>

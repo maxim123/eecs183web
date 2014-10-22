@@ -1,0 +1,59 @@
+<div id="tutorials">
+	<div id="tutorials-header">
+		<h1>Tutorials</h1>
+		
+		<p>Tutorial sessions are held on Sundays from 6 p.m. until 7:30 p.m. in <a href="http://rooms.lsa.umich.edu/classrooms/CHEM1800" target="_blank">1800 Chemistry Building</a>.</p>
+	</div>
+	<div id="tutorials-view">
+		<h2>10/5: Project 3</h2>
+		<!-- <p>Slides</p> -->
+		<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+	    <div id="tutorial1-player" class="tutorials-video"></div>
+	    <ul>
+	    	<li><a href="#tutorials" onclick="tutorial1Player.seekTo(0 * 60 + 19);return false;">Announcements (0:19)</a></li>
+	    	<li><a href="#tutorials" onclick="tutorial1Player.seekTo(1 * 60 + 24);return false;">Overview (1:24)</a></li>
+	    	<li><a href="#tutorials" onclick="tutorial1Player.seekTo(6 * 60 + 26);return false;">Setting up (6:26)</a></li>
+	    	<li><a href="#tutorials" onclick="tutorial1Player.seekTo(7 * 60 + 16);return false;">Functions (7:16)</a></li>
+	    	<li><a href="#tutorials" onclick="tutorial1Player.seekTo(20 * 60 + 0);return false;">Testing (20:00)</a></li>
+	    	<li><a href="#tutorials" onclick="tutorial1Player.seekTo(26 * 60 + 36.5);return false;">Creating a project in Visual Studio (26:36)</a></li>
+	    	<li><a href="#tutorials" onclick="tutorial1Player.seekTo(38 * 60 + 15);return false;">Creating a project in Xcode (38:15)</a></li>
+	    	<li><a href="#tutorials" onclick="tutorial1Player.seekTo(43 * 60 + 28);return false;">Reminders (43:28)</a></li>
+	    	<li><a href="#tutorials" onclick="tutorial1Player.seekTo(44 * 60 + 57);return false;">Questions (44:57)</a></li>
+	    </ul>
+		
+		
+		
+
+	    <script id="youtube-script">
+	    	var tag = document.createElement('script');
+	        tag.src = "https://www.youtube.com/player_api";
+	        var firstScriptTag = document.getElementsByTagName('script')[0];
+	        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	        var player;
+	        function onYouTubePlayerAPIReady() {
+	            tutorial1Player = new YT.Player('tutorial1-player', {
+	                height: '720',
+	                width: '1280',
+	                videoId: 'yzpXIV4Lrk4'
+	            });
+	        }
+	        (function() {
+            tutorial1Player = new YT.Player('tutorial1-player', {
+                height: '720',
+                width: '1280',
+                videoId: 'yzpXIV4Lrk4'
+            });
+            })();
+	      
+	    </script>
+		
+<!-- 		<iframe class="tutorials-video" width="1280" height="720" src="//www.youtube.com/embed/yzpXIV4Lrk4" frameborder="0" allowfullscreen></iframe> -->
+		<h2>10/19: Exam 1 Review</h2>
+		<!-- <p>Slides</p> -->
+		<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+	    <div id="tutorial2-player" class="tutorials-video">
+		    <iframe class="tutorials-video" src="https://docs.google.com/presentation/d/1ZWehOZvpzSAlkLxFFI7NvsKzBDWbukYTJbn3KSs5Gis/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+	    </div>
+	</div>
+</div>
+
