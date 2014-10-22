@@ -7,6 +7,7 @@ function createElement(elementType)
 $(document).ready(function ()
 {
 	loadPage();
+	loadStaffContent();
 
 	$("#sidebar-wrapper li").click(function()
 	{
@@ -25,6 +26,39 @@ $(document).ready(function ()
         document.cookie = 'cosign=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
         window.location.href = 'https://weblogin.umich.edu/cgi-bin/logout?https://www.umich.edu/~eecs183/';
 	})
+	
+	$(window).resize(function()
+	{
+		if ($(window).width() < 1474)
+		{
+			$('#tutoring-calendar').height($(window).height() - 52);
+		}
+		else
+		{
+			$('#tutoring-calendar').height($(window).height() - 67);
+		}
+		
+		$('#hours-calendar').height($(window).height() - 168);
+	});
+	
+	
+// cookies
+/*
+	if ($.cookie("exam1") == null)
+	{
+		// alert("Project 3 tutorial is tomorrow (Sunday) at 6 p.m. in 1800 CHEM");
+		$('#announcement-exam1-review').modal('show');
+	}
+	
+	
+	// track attendance
+	$('.exam1-review').on('click', function() {
+		$.cookie("exam1", "announcement", {expires: 7});
+		ga('send', 'event', 'exam1-review', $(this).html());
+		$('#announcement-exam1-review').modal('hide');
+	});
+*/
+
 });
 
 function changePage()
@@ -55,6 +89,7 @@ function loadPage()
     LAST_LIVE_POPOVER = undefined; // reset upon page change
     IS_MOUSE_IN_POPOVER = false;
 	var page = window.location.hash.substring(1);
+	var path = 'pages/';
 	
 	// TODO: dynamically figure out which pages are available 
 	var validPages = {
@@ -70,8 +105,18 @@ function loadPage()
 		'piazza': 'Piazza',
 		'oh': 'Office Hours',
 		'logout': 'Log Out',
-		'apply': 'Application'
+		'apply': 'Application',
+		'tutorials': 'Tutorials',
+		'tutoring': 'Tutoring',
+		'staff-files': 'Staff Files'
 	};
+	
+	// staff content
+	if (page.indexOf('staff-') == 0)
+	{
+		path = 'staff-only/';
+		/* $('#staff-only-link').click(); */
+	}
 	
 	if (page == 'projects')
 	{
@@ -93,10 +138,10 @@ function loadPage()
 	{
 		document.title += ': ' + validPages[page];
 	}
-	
+	console.log(path + page + '.html');
 	$("#sidebar-wrapper li").removeClass("active");
 	$("#" + page + "-button").addClass("active");
-	$('#content').load('pages/' + page + '.html', function (response, status, xhr)
+	$('#content').load(path + page + '.html', function (response, status, xhr)
 	{
 	    if (page == "staff" && status == "success")
 	    {
@@ -137,12 +182,44 @@ function loadPage()
             	$(".img-wrapper", this).popover("toggle");
             });
         }
-	});	
+        else if (page == "tutorials" && status == "success")
+        {
+	        /*
+var tag = $('#tutorials').createElement('script');
+	        tag.src = "https://www.youtube.com/player_api";
+	        var firstScriptTag = $('#tutorials').getElementsByTagName('script')[0];
+	        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	        var player;
+	        function onYouTubePlayerAPIReady() {
+	            tutorial1Player = new YT.Player('tutorial1-player', {
+	                height: '720',
+	                width: '1280',
+	                videoId: 'yzpXIV4Lrk4'
+	            });
+	        }
+*/
+        }
+	});
 }
 
 function removeProgressWheel()
 {
 	$('.progress-wheel').remove();
+}
+
+function loadStaffContent()
+{
+	$.get('staff-only/navigation.html', function(data)
+	{
+		$(data).insertBefore('#logout-button');
+		$('#staff-only-button').hide().slideDown();
+		
+	});
+	
+	$.get('staff-only/project-list.html', function(data) {
+		$('#project-list').append(data);
+	});
+	
 }
 
 
