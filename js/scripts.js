@@ -41,23 +41,28 @@ $(document).ready(function ()
 		$('#hours-calendar').height($(window).height() - 168);
 	});
 	
+	// tutorials scrolling
+	$('#tutorials-view').scrollspy({ target: '#tutorials-header' });
+	
 	
 // cookies
+
 /*
-	if ($.cookie("exam1") == null)
+	if ($.cookie("project4") == null)
 	{
 		// alert("Project 3 tutorial is tomorrow (Sunday) at 6 p.m. in 1800 CHEM");
-		$('#announcement-exam1-review').modal('show');
+		$('#announcement-project4-tutorial').modal('show');
 	}
 	
 	
 	// track attendance
-	$('.exam1-review').on('click', function() {
-		$.cookie("exam1", "announcement", {expires: 7});
-		ga('send', 'event', 'exam1-review', $(this).html());
-		$('#announcement-exam1-review').modal('hide');
+	$('.project4-tutorial').on('click', function() {
+		$.cookie("project4", "announcement", {expires: 7});
+		ga('send', 'event', 'project4-tutorial', $(this).html());
+		$('#announcement-project4-tutorial').modal('hide');
 	});
 */
+
 
 });
 
@@ -106,6 +111,7 @@ function loadPage()
 		'oh': 'Office Hours',
 		'logout': 'Log Out',
 		'apply': 'Application',
+		'teams': 'Teams',
 		'tutorials': 'Tutorials',
 		'tutoring': 'Tutoring',
 		'staff-files': 'Staff Files'

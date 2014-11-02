@@ -227,9 +227,21 @@ h1
 	background: #e26f6d;
 }
 
+#project-final-tile
+{
+	padding-top: 24px;
+	background: #988ab9;
+}
+
+#partner-tile
+{
+	padding-top: 12px;
+	background: #E5DA64;
+}
+
 #tutorial-tile
 {
-	padding-top: 32px;
+	padding-top: 18px;
 }
 
 #tutorial-tile h2
@@ -514,6 +526,11 @@ a:focus:hover
 	overflow-y: hidden;
 }
 
+#tutoring-header h1
+{
+	font-weight: 300 !important;
+}
+
 #tutoring-background
 {
 	width: 100%;
@@ -579,12 +596,86 @@ a:focus:hover
 	padding-top: 32px;
 }
 
+#hours h1
+{
+	font-weight: 300;
+}
+
+#teams
+{
+	background: #877ba4;
+	color: white;
+	height: 100%;
+	text-align: center;
+}
+
+#teams-header
+{
+	height: 140px;
+	padding-top: 32px;
+}
+
+#teams h1
+{
+	font-weight: 300;
+}
+
+#teams p
+{
+	padding-top: 16px;
+}
+
+#teams > div
+{
+	margin-bottom: 48px;
+}
+
+.icon-team
+{
+	margin-left: 16px;
+	margin-right: 16px;
+}
+
+.icon-match
+{
+	margin-left: 60px;
+	margin-right: 60px;
+}
+
 #tutorials-header
 {
 	background: #5a83b2;
 	color: white;
 	padding-top: 32px;
 	padding-bottom: 32px;
+	padding-left: auto;
+	padding-right: auto;
+	position: fixed;
+	height: 170px;
+	top: 0;
+	left: 160px; 
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 2;
+}
+
+#tutorials h1
+{
+	font-weight: 300;
+}
+
+#tutorials-header ul li
+{
+	display: inline;
+	text-decoration: underline;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#tutorials-header ul li:hover
+{
+	cursor: pointer;
 }
 
 #tutorials a
@@ -596,8 +687,10 @@ a:focus:hover
 #tutorials-view
 {
 	padding: 24px;
+	padding-top: 170px;
+	padding-bottom: 48px;
 	color: white;
-	padding-bottom: 24px;
+	position: relative;
 }
 
 #tutorials
@@ -605,11 +698,12 @@ a:focus:hover
 	text-align: center;
 	background: #85C4E5;
 	background-attachment: fixed;
+	width: 100%;
 }
 
 #tutorials h2
 {
-	margin-top: 48px;
+	margin-top: 32px;
 	margin-bottom: 24px;
 	font-weight: 400;
 	font-size: 24px;
