@@ -19,12 +19,12 @@ body
 }
 
 .hero-unit.custom {
-	background: url('../img/6.jpg') no-repeat 0 0;
+	background: url('../img/7.jpg') no-repeat 0 0;
     -moz-background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-	background-position: center center;
+	background-position: center top;
 	height: 320px;
 	padding: 0;
 	margin: 0;
@@ -239,9 +239,21 @@ h1
 	background: #E5DA64;
 }
 
-#tutorial-tile
+#extra_credit-tile
 {
 	padding-top: 18px;
+	background: #eedb64;
+}
+
+#thankful-tile
+{
+	padding-top: 48px;
+	background: #78c4c5;
+}
+
+#tutorial-tile
+{
+	padding-top: 32px;
 }
 
 #tutorial-tile h2
@@ -603,10 +615,16 @@ a:focus:hover
 
 #teams
 {
-	background: #877ba4;
 	color: white;
-	height: 100%;
+	position: relative;
+	height: auto;
+	min-height: 100%;
+	margin: 0;
 	text-align: center;
+	background: #877ba4;
+	background-size: cover;
+    background-attachment: fixed;
+    padding-bottom: 2px;
 }
 
 #teams-header
@@ -620,14 +638,24 @@ a:focus:hover
 	font-weight: 300;
 }
 
+#teams a, #teams a:hover
+{
+	color: white;
+	text-decoration: underline;
+}
+
 #teams p
 {
-	padding-top: 16px;
+	padding-top: 8px;
+	padding-bottom: 8px;
 }
 
 #teams > div
 {
 	margin-bottom: 48px;
+	max-width: 520px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .icon-team
@@ -703,10 +731,15 @@ a:focus:hover
 
 #tutorials h2
 {
-	margin-top: 32px;
-	margin-bottom: 24px;
+	margin-top: 48px;
+	margin-bottom: 12px;
 	font-weight: 400;
 	font-size: 24px;
+}
+
+#tutorials p
+{
+	margin: 12px;
 }
 
 #tutorials ul

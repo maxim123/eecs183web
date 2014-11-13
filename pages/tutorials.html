@@ -8,6 +8,8 @@
 				<li onclick="$('html,body').animate({scrollTop: $('#tutorial-1').offset().top - $('#tutorial-1').offset().top});">Project 3</li>
 				<li onclick="$('html,body').animate({scrollTop: $('#tutorial-2').offset().top - $('#tutorial-1').offset().top});">Exam 1 Review</li>
 				<li onclick="$('html,body').animate({scrollTop: $('#tutorial-3').offset().top - $('#tutorial-1').offset().top});">Project 4</li>
+				<li onclick="$('html,body').animate({scrollTop: $('#tutorial-4').offset().top - $('#tutorial-1').offset().top});">Pokémon (and C++ classes)</li>
+				<li onclick="$('html,body').animate({scrollTop: $('#tutorial-5').offset().top - $('#tutorial-1').offset().top});">Project 5</li>
 			</u;>
 		</div>
 <!--
@@ -76,9 +78,42 @@
 		    <h2>10/26: Project 4</h2>
 			<!-- <p>Slides</p> -->
 			<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-		    <div id="tutorial4-player">
+		    <div id="tutorial3-player">
 			    <a target="_blank" href="https://drive.google.com/file/d/0ByLbAbXq2aBTak5ZWXFWMmNZQmc/view?usp=sharing">Download video (pre-release)</a>
 		    </div>
+	    </div>
+	    <div id="tutorial-4">
+		    <h2>11/2: Pokémon (and C++ classes)</h2>
+			<p><a href="https://docs.google.com/presentation/d/11SZ3wIfdsmkGxSmTG1XLCb8jidWXCKo14DfYWml0rc4/pub?start=false&loop=false&delayms=3000" target="_blank" onClick="ga('send', 'event', 'link', 'Tutorial 4 slides', 'tutorials');">Slides</a></p>
+			<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+		    <div id="tutorial4-player" class="tutorials-video"><iframe width="640" height="380" src="//www.youtube.com/embed/vQ7FTNrMN0Y" frameborder="0" allowfullscreen></iframe></div>
+	    <div id="tutorial-5">
+		    <h2>11/9: Project 5</h2>
+			<p><a href="https://docs.google.com/presentation/d/10NyI_hsvHzRBzSnzznjNNts9D_1TqnK9keBv6b4ab5k/pub?start=false&loop=false&delayms=3000" target="_blank" onClick="ga('send', 'event', 'link', 'Tutorial 5 slides', 'tutorials');">Slides</a></p>
+			<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+		    <div id="tutorial5-player" class="tutorials-video"><iframe width="640" height="380" src="//www.youtube.com/embed/iFr-Dum_nW4" frameborder="0" allowfullscreen></iframe></div>
+		    <!--<script id="youtube-script">
+		    	var tag = document.createElement('script');
+		        tag.src = "https://www.youtube.com/player_api";
+		        var firstScriptTag = document.getElementsByTagName('script')[0];
+		        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+		        var player;
+		        function onYouTubePlayerAPIReady() {
+		            tutorial4Player = new YT.Player('tutorial4-player', {
+		                height: '720',
+		                width: '1280',
+		                videoId: 'vQ7FTNrMN0Y'
+		            });
+		        }
+		        (function() {
+	            tutorial4Player = new YT.Player('tutorial4-player', {
+	                height: '720',
+	                width: '1280',
+	                videoId: 'vQ7FTNrMN0Y'
+	            });
+	            })();
+		      
+		    </script>-->
 	    </div>
 	</div>
 </div>

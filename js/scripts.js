@@ -108,6 +108,7 @@ function loadPage()
 		'staff': 'Staff',
 		'183style': '183style',
 		'piazza': 'Piazza',
+		'proposal': 'Proposal',
 		'oh': 'Office Hours',
 		'logout': 'Log Out',
 		'apply': 'Application',
