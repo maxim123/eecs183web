@@ -241,7 +241,7 @@ h1
 
 #extra_credit-tile
 {
-	padding-top: 18px;
+	padding-top: 24px;
 	background: #eedb64;
 }
 
@@ -312,7 +312,6 @@ h1
 {
 	margin-left: 0px;
 	margin-right: 0px;
-	padding-top: 10px;
 	background: #9ea7c7;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -320,6 +319,26 @@ h1
 	-o-border-radius: 4px;
 	color: white;
 	text-align: center;
+}
+
+#deadlines a, #deadlines a:hover
+{
+	color: white;
+	text-decoration: underline;
+}
+
+#deadlines-header
+{
+	padding: 12px;
+	margin: 0;
+}
+
+#deadlines-footer
+{
+	padding: 12px;
+	padding-bottom: 13px;
+	padding-top: 6px;
+	margin: 0;
 }
 
 @media (max-width: 855px)
