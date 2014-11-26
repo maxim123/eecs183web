@@ -11,7 +11,8 @@
 	<meta name="keywords" content="EECS 183 University of Michigan umich um computer science elementary programming concepts electrical engineering lsa coe">
         
     <link rel="icon" type="image/png" href="img/icon48.png" />
-    <link rel="apple-touch-icon-precomposed" href="img/iphone.png" />
+    <link rel="apple-touch-icon-precomposed" href="http://umich.edu/~eecs183/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <title>EECS 183</title>
 
@@ -27,10 +28,12 @@
 
     <!-- JAVASCRIPT LIBRARIES -->
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//code.jquery.com/color/jquery.color-2.1.0.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
     <script type="text/javascript" src="js/staff_data.js"></script>
     <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jquery.xdomainajax.js"></script>
     
     <!-- GA -->
 	<script>
@@ -69,6 +72,12 @@
                 <li id="calendar-button">
                     <a href="#calendar"><i class="fa fa-calendar fa-fw"></i>&nbsp;Calendar</a>
                 </li>
+                <li id="gallery-button">
+                    <a href="#gallery"><i class="fa fa-picture-o fa-fw"></i>&nbsp;Gallery</a>
+                </li>
+                <li id="github-button">
+                    <a href="https://github.com/eecs183" target="_blank"><i class="fa fa-github fa-fw"></i>&nbsp;GitHub</a>
+                </li>
                 <li id="gradebook-button">
                     <a href="#gradebook"><i class="fa fa-font fa-fw"></i>&nbsp;Gradebook</a>
                 </li>
@@ -105,6 +114,33 @@
                         <li>
                         	<a href="http://umich.edu/~eecs183/projects/final_project/final_project.html" target="_blank">Final Project</a>
                         </li>
+                        
+	                        
+	                    <li>
+	                    	<ul>
+		                    	<li>
+		                        	<a href="http://umich.edu/~eecs183/projects/final_project/arcade.html" target="_blank">Arduino</a>
+		                        </li>
+		                        <li>
+		                        	<a href="http://umich.edu/~eecs183/projects/final_project/creature_trainer.html" target="_blank">Creature Trainer</a>
+		                        </li>
+		                        <li>
+		                        	<a href="http://umich.edu/~eecs183/projects/final_project/schedule.html" target="_blank">Schedule</a>
+		                        </li>
+		                        <li>
+		                        	<a href="http://umich.edu/~eecs183/projects/final_project/game_of_life.html" target="_blank">Game of Life</a>
+		                        </li>
+		                        <li>
+		                        	<a href="http://umich.edu/~eecs183/projects/final_project/predictive.html" target="_blank">Predictive</a>
+		                        </li>
+		                        <li>
+		                        	<a href="http://umich.edu/~eecs183/projects/final_project/final_project.html" target="_blank">Piazza Words</a>
+		                        </li>
+		                    </ul>
+	                    </li>
+	                    
+	                        
+                        
                     </ul>
                 </li>
                 <li id="resources-button">
@@ -175,25 +211,27 @@
 			</div>
 		</div>
 -->
-        <!--
-<div class="modal fade" id="announcement-exam1-review" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        
+<!--
+<div class="modal fade" id="announcement-exam2-review" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h4 class="modal-title" id="myModalLabel">Exam 1 Review Session</h4>
+						<h4 class="modal-title" id="myModalLabel">Exam 2 Review Session</h4>
 					</div>
 					<div class="modal-body">
-						<p>The teaching staff will hold a course-wide review session tomorrow night from <strong>6 p.m.</strong> until <strong>7:30 p.m.</strong> in <strong><a href="http://rooms.lsa.umich.edu/classrooms/NS2140" target="_blank">Natural Science 2140 - Kraus Auditorium</a></strong>. Be sure to vote for topics you'd like to review on <a href="https://piazza.com/class/hyodngi3l9i72k?cid=1240" target="_blank">Piazza</a>.</p>
+						<p>The teaching staff will hold a course-wide review session <strong>tonight</strong> from <strong>6 p.m.</strong> until <strong>7:30 p.m.</strong> in <strong><a href="http://rooms.lsa.umich.edu/classrooms/CHEM1800" target="_blank">Chemistry 1800</a></strong>. It will cover stream, two-dimensional arrays, classes, Python, and more. Come with questions!</p>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-success exam1-review" data-dismiss="modal">I'm coming!</button>
-						<button type="button" class="btn btn-warning exam1-review" data-dismiss="modal">Maybe</button>
-						<button type="button" class="btn btn-danger exam1-review" data-dismiss="modal">Can't make it!</button>
+						<button type="button" class="btn btn-success exam2-review" data-dismiss="modal">I'm coming!</button>
+						<button type="button" class="btn btn-warning exam2-review" data-dismiss="modal">Maybe</button>
+						<button type="button" class="btn btn-danger exam2-review" data-dismiss="modal">Can't make it!</button>
 					</div>
 				</div>
 			</div>
 		</div>
 -->
+
 
 <!--
 		<div class="modal fade" id="announcement-project4-tutorial" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">

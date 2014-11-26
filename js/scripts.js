@@ -25,7 +25,9 @@ $(document).ready(function ()
 		document.cookie = 'cosign-www=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/;';
         document.cookie = 'cosign=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
         window.location.href = 'https://weblogin.umich.edu/cgi-bin/logout?https://www.umich.edu/~eecs183/';
-	})
+	});
+	
+	var currentWidth = $(window).width();
 	
 	$(window).resize(function()
 	{
@@ -39,6 +41,16 @@ $(document).ready(function ()
 		}
 		
 		$('#hours-calendar').height($(window).height() - 168);
+		
+		$('#gradebook-items').height($(window).height() - 122);
+		
+		if ($(window).width() != currentWidth)
+		{
+			// clear div
+			$('#cover').html('');
+			loadCover();
+			currentWidth = $(window).width();
+		}
 	});
 	
 	// tutorials scrolling
@@ -47,21 +59,23 @@ $(document).ready(function ()
 	
 // cookies
 
+
 /*
-	if ($.cookie("project4") == null)
+	if ($.cookie("exam2-review") == null)
 	{
 		// alert("Project 3 tutorial is tomorrow (Sunday) at 6 p.m. in 1800 CHEM");
-		$('#announcement-project4-tutorial').modal('show');
+		$('#announcement-exam2-review').modal('show');
 	}
 	
 	
 	// track attendance
-	$('.project4-tutorial').on('click', function() {
-		$.cookie("project4", "announcement", {expires: 7});
-		ga('send', 'event', 'project4-tutorial', $(this).html());
-		$('#announcement-project4-tutorial').modal('hide');
+	$('.exam2-review').on('click', function() {
+		$.cookie("exam2-review", "announcement", {expires: 7});
+		ga('send', 'event', 'exam2-review', $(this).html());
+		$('#announcement-exam2-review').modal('hide');
 	});
 */
+
 
 
 });
@@ -103,7 +117,9 @@ function loadPage()
 		'syllabus': 'Syllabus',
 		'resources': 'Resources',
 		'lectures': 'Lectures',
+		'gallery': 'Gallery',
 		'gradebook': 'Gradebook',
+		'gradebook2': 'Gradebook 2',
 		'autograder': 'Autograder',
 		'staff': 'Staff',
 		'183style': '183style',
@@ -115,6 +131,7 @@ function loadPage()
 		'teams': 'Teams',
 		'tutorials': 'Tutorials',
 		'tutoring': 'Tutoring',
+		'staff-project5-grading': 'Project 5 Grading',
 		'staff-files': 'Staff Files'
 	};
 	
@@ -150,6 +167,23 @@ function loadPage()
 	$("#" + page + "-button").addClass("active");
 	$('#content').load(path + page + '.html', function (response, status, xhr)
 	{
+		if (page == 'gallery' && status == 'success')
+		{
+			loadGalleryImages();
+			
+		}
+		
+		if (page == "staff-project5-grading" && status == "success")
+	    {
+		    loadStaffGallery();
+		}
+		
+		if (page == "home" && status == "success")
+	    {
+		    loadCover();
+		}
+		
+		
 	    if (page == "staff" && status == "success")
 	    {
 	        populateStaffPage();
@@ -213,6 +247,250 @@ function removeProgressWheel()
 {
 	$('.progress-wheel').remove();
 }
+
+
+/* gallery background colors */
+function changeBackground(page)
+{
+	var scroll_pos = 0;
+    var animation_begin_pos = 0;
+    var animation_end_pos = $('#'+page).height();
+    var beginning_color = new $.Color('#D38AB7');
+    var ending_color = new $.Color('#85C4E5');
+    $(document).scroll(function() {
+        scroll_pos = $(this).scrollTop(); 
+        if(scroll_pos >= animation_begin_pos && scroll_pos <= animation_end_pos)
+        { 
+        
+            var percentScrolled = scroll_pos / (animation_end_pos - animation_begin_pos);
+            var newRed = beginning_color.red() + ((ending_color.red() - beginning_color.red()) * percentScrolled);
+            var newGreen = beginning_color.green() + ((ending_color.green() - beginning_color.green()) * percentScrolled);
+            var newBlue = beginning_color.blue() + ((ending_color.blue() - beginning_color.blue()) * percentScrolled);
+            var newColor = new $.Color(newRed, newGreen, newBlue);
+            
+            $('#'+page).animate({
+	            backgroundColor: newColor
+	            
+            }, 0);
+        }
+        else if (scroll_pos > animation_end_pos)
+        {
+             $('#'+page).animate({
+	             backgroundColor: ending_color
+	         }, 0);
+        }
+        else if (scroll_pos < animation_begin_pos )
+        {
+             $('#'+page).animate({
+	             backgroundColor: beginning_color
+	             
+             }, 0);
+        } else { }
+    });
+}
+
+/* home page cover */
+function loadCover()
+{
+	var path = 'https://www.umich.edu/~eecs183/gallery/images/';
+	$.ajax(
+	{
+		url: path,
+		success: function(data)
+		{
+			var images = [];
+			//alert(data);
+			$(data).find("a:contains(.png)").each(function(){
+				// will loop through 
+				images[images.length] = $(this);
+				//alert("Found a file: " + );
+			});
+			//alert(images.toString());
+			populateCover(images, path);
+		}
+	});
+	
+}
+
+function populateCover(images, path)
+{
+	images = shuffleArray(images);
+	var imgDimension = 64;
+	var maxColumns = 20;
+	var numRows = Math.floor($('#cover').height() / imgDimension);
+	var numColumns = Math.floor(Math.min($('#cover').width(), imgDimension * maxColumns) / imgDimension);
+	//alert(numColumns);
+	
+	// clear div
+	$('#cover').html('');
+	
+	for (var i = 0; i < numRows; i++)
+	{
+		for (var j = 0; j < numColumns; j++)
+		{
+			/*
+if (numColumns % 2 && i == Math.floor(numRows / 2) && j == Math.floor(numColumns / 2))
+			{
+				var img = createElement("div").addClass("cover-title");
+				img.html("183");
+				$('#cover').append('<span class="cover-title">183</span>');
+			}
+			else
+			{
+*/
+				
+				
+
+				var imgContainer = createElement('a');
+				imgContainer.attr('href', '#gallery');
+				imgContainer.attr('onClick', "ga('send', 'event', 'link', 'click on Gallery', 'home');");
+				// var img = createElement("img").addClass("cover-image").attr("src", path + images[i * numColumns + j].attr("href"));
+				//imgContainer.append(img);
+				//$('#cover').append(imgContainer/* .append(img) */);
+				
+
+				
+				
+				var img = createElement("img").addClass("cover-image").attr("src", path + images[i * numColumns + j].attr("href"));
+				$('#cover').append(imgContainer.append(img));
+				
+			// }
+		}
+		$('#cover').append('<br/>');
+	}
+}
+
+
+/* gallery images */
+function loadGalleryImages()
+{
+	
+	var path = 'https://www.umich.edu/~eecs183/gallery/images2x/';
+	$.ajax(
+	{
+		url: path,
+		success: function(data)
+		{
+			var images = [];
+			//alert(data);
+			$(data).find("a:contains(.png)").each(function(){
+				// will loop through 
+				if ($(this).attr('href') != 'shihand.png')
+				{
+					images[images.length] = $(this);
+				}
+				//alert("Found a file: " + );
+			});
+			populateImageGallery(images, path, true);
+			changeBackground('gallery');
+		}
+	});
+}
+
+function loadStaffGallery()
+{
+	var path = 'https://www.umich.edu/~eecs183/gallery/images2x/';
+	$.ajax(
+	{
+		url: path,
+		success: function(data)
+		{
+			var images = [];
+			//alert(data);
+			$(data).find("a:contains(.png)").each(function(){
+				// will loop through 
+				images[images.length] = $(this);
+				
+				//alert("Found a file: " + );
+			});
+			populateImageGallery(images, path, false);
+		}
+	});
+}
+
+
+function populateImageGallery(images, path, random)
+{
+	var NUM_COLMNS = 12,
+    MAX_IMAGES_IN_ROW = { // values must be multiples of NUM_COLUMNS
+        lg: 3,
+        md: 2,
+        sm: 2,
+        xs: 1,
+    };
+    
+    if (random)
+    {
+		images = shuffleArray(images);
+		images
+	}
+	else
+	{
+		// temp
+		MAX_IMAGES_IN_ROW['lg'] = 2;
+		MAX_IMAGES_IN_ROW['xs'] = 2;
+	}
+	/*
+for (var i = 0; i < images.length; i++)
+	{
+		$('#gallery-images').append('<img src="' + path + images[i] + '" alt="' + images[i] + '" class="gallery-image">');
+		//images[i].appendTo();
+	}
+*/
+	
+	
+	var numImages = images.length,
+        columnWidths = {};
+
+    var imagesRow = $('#gallery-images');
+    for (var i = 0; i < numImages; i++)
+    {
+        var image = images[i],
+            imageElement = createElement("div").addClass("gallery-item"),
+            //imgWrapper = createElement("div").addClass("gallery-img-wrapper"),
+            img = createElement("img").addClass("gallery-image").attr("src", path + images[i].attr("href")),
+            authorName = createElement("p").addClass("gallery-image-author");
+
+        // determine column widths
+        for (var attr in MAX_IMAGES_IN_ROW)
+        {
+            var maxInRow = MAX_IMAGES_IN_ROW[attr];
+            // check if grid row for given size has been filled
+            if (i % maxInRow == 0)
+            {
+                // update row
+                if (maxInRow >= numImages - i)
+                    columnWidths[attr] = NUM_COLMNS / (numImages - i);
+                else
+                    columnWidths[attr] = NUM_COLMNS / maxInRow;
+            }
+        }
+
+        // place column width classes on staff-member element
+        for (var attr in columnWidths)
+            imageElement.addClass("col-" + attr + "-" + columnWidths[attr]);
+
+
+        // append children
+        imageElement.append(img);
+        imageElement.append(authorName.text(image.text().replace('.png', '')));
+
+        // append to row
+        imagesRow.append(imageElement);
+    }
+	imagesRow.resize();
+}
+
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
+
 
 function loadStaffContent()
 {
