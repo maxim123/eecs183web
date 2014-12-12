@@ -302,7 +302,10 @@ function loadCover()
 			//alert(data);
 			$(data).find("a:contains(.png)").each(function(){
 				// will loop through 
-				images[images.length] = $(this);
+				if ($(this).attr("href") != "gwynm.png")
+				{
+					images[images.length] = $(this);
+				}
 				//alert("Found a file: " + );
 			});
 			//alert(images.toString());
@@ -319,6 +322,11 @@ function populateCover(images, path)
 	var maxColumns = 20;
 	var numRows = Math.floor($('#cover').height() / imgDimension);
 	var numColumns = Math.floor(Math.min($('#cover').width(), imgDimension * maxColumns) / imgDimension);
+	if (!(numColumns % 2))
+	{
+		numColumns -= 1;
+	}
+	console.log(numColumns);	
 	//alert(numColumns);
 	
 	// clear div
@@ -338,12 +346,22 @@ if (numColumns % 2 && i == Math.floor(numRows / 2) && j == Math.floor(numColumns
 			else
 			{
 */
-				
-				
-
 				var imgContainer = createElement('a');
 				imgContainer.attr('href', '#gallery');
 				imgContainer.attr('onClick', "ga('send', 'event', 'link', 'click on Gallery', 'home');");
+				var img;
+				if ((i == 1 || i == 2 || i == 3) && (j >= Math.floor(numColumns / 2) - 1 && j <= (numColumns / 2 + 1)))
+				{
+					console.log(j);
+					img = createElement("div").addClass("cover-filler");
+					$('#cover').append(img);
+				}
+				else
+				{
+					var img = createElement("img").addClass("cover-image").attr("src", path + images[i * numColumns + j].attr("href"));
+				}
+
+				
 				// var img = createElement("img").addClass("cover-image").attr("src", path + images[i * numColumns + j].attr("href"));
 				//imgContainer.append(img);
 				//$('#cover').append(imgContainer/* .append(img) */);
@@ -351,7 +369,7 @@ if (numColumns % 2 && i == Math.floor(numRows / 2) && j == Math.floor(numColumns
 
 				
 				
-				var img = createElement("img").addClass("cover-image").attr("src", path + images[i * numColumns + j].attr("href"));
+				
 				$('#cover').append(imgContainer.append(img));
 				
 			// }
