@@ -25,7 +25,7 @@ body
 }
 
 .hero-unit.custom {
-	background: url('https://www.umich.edu/~eecs183/gallery/images2x/gwynm.png') no-repeat;
+	background: #a23d55;
 	 /*url('../img/7.jpg') no-repeat 0 0;*/
     -moz-background-size: 185px 185px;
     -webkit-background-size: 185px 185px;
@@ -35,8 +35,70 @@ body
 	height: 320px;
 	padding: 0;
 	margin: 0;
+	color: white;
+	text-align: center;
 }
 
+.hero-unit.custom h2
+{
+    margin: 0;
+    padding: 10px;
+    font-weight: 300;
+}
+
+#final-checklist
+{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 440px;
+}
+
+
+#final-checklist ul
+{
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin: 0;
+}
+
+#final-checklist li
+{
+    padding: 3px;
+    margin: 2px;
+    background: #bc576f;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	cursor: pointer;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+#final-checklist li.completed
+{
+    background: #78b694;
+}
+
+#final-checklist li i.completed
+{
+    display: none;
+}
+
+#final-checklist li i
+{
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+/*
 .cover-title
 {
 	color: white;
@@ -74,6 +136,7 @@ body
 	margin: 0px;
 	padding: 0;
 }
+*/
 
 h1
 {
@@ -256,6 +319,53 @@ h1
 	background: #f39f4a;
 }
 
+
+#guests-tile
+{
+	background: #f1b06b;
+}
+
+#guests-tile p
+{
+	padding: 0;
+	max-width: 420px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#guests-tile h3
+{
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    padding-top: 16px;
+    padding-bottom: 10px;
+}
+
+@media (max-width: 1028px)
+{
+    #guests-tile h3
+    {
+        margin: 0;
+        font-weight: 400;
+        font-size: 18px;
+        padding-top: 6px;
+        padding-bottom: 2px;
+    }
+}
+
+.tile a
+{
+    color: white;
+    text-decoration: underline;
+}
+
+.tile a:hover
+{
+    color: white;
+    text-decoration: underline;
+}
+
 #codelab-tile
 {
 	background: #62a668;
@@ -279,7 +389,7 @@ h1
 
 #evals-tile
 {
-	padding-top: 32px;
+	padding-top: 40px;
 	background: #e26f6d;
 }
 

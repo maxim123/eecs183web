@@ -20,6 +20,51 @@ $(document).ready(function ()
 
 	window.onhashchange = changePage;
 	
+	
+	
+	$(document).on('click', '#final-checklist li', function(e)
+	{
+    	var elemID = e.target.id;
+    	if ($(e.target).hasClass('fa'))
+    	{
+        	elemID = $(e.target).closest('li').attr("id");
+    	}
+    	if ($('#' + elemID).hasClass('completed'))
+    	{
+        	$('#' + elemID).removeClass('completed');
+        	$('#' + elemID + ' i.completed').hide();
+        	$('#' + elemID + ' i.pending').show();
+        	$.removeCookie(elemID);
+        	ga('send', 'event', 'uncheck', elemID);
+    	}
+    	else
+    	{
+    	    $('#' + elemID).addClass('completed');
+        	$('#' + elemID + ' i.completed').show();
+        	$('#' + elemID + ' i.pending').hide();
+        	$.cookie(elemID, 'completed', {expires: 14});
+        	ga('send', 'event', 'check', elemID);
+        }
+        
+        var finished = true;
+	    $('#final-checklist li').each(function()
+    	{
+        	if (!$(this).hasClass('completed'))
+        	{
+            	finished = false;
+        	}
+    	});
+    	
+    	if (finished)
+    	{
+        	$('#cover').css('background','#7D5E93');
+    	}
+    	else
+    	{
+        	$('#cover').css('background','#a23d55');
+    	}
+	});
+	
 	$('#logout-button').click(function()
 	{
 		document.cookie = 'cosign-www=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/;';
@@ -44,13 +89,15 @@ $(document).ready(function ()
 		
 		$('#gradebook-items').height($(window).height() - 122);
 		
-		if ($(window).width() != currentWidth)
+		/*
+if ($(window).width() != currentWidth)
 		{
 			// clear div
 			$('#cover').html('');
 			loadCover();
 			currentWidth = $(window).width();
 		}
+*/
 	});
 	
 	// tutorials scrolling
@@ -180,7 +227,25 @@ function loadPage()
 		
 		if (page == "home" && status == "success")
 	    {
-		    loadCover();
+    	    var finished = true;
+		    $('#final-checklist li').each(function()
+        	{
+            	if ($.cookie(this.id) == 'completed')
+            	{
+                	$('#' + this.id).addClass('completed');
+                	$('#' + this.id + ' i.completed').show();
+                	$('#' + this.id + ' i.pending').hide();
+            	}
+            	else
+            	{
+                	finished = false;
+            	}
+        	});
+        	
+        	if (finished)
+        	{
+            	$('#cover').css('background','#7D5E93');
+        	}
 		}
 		
 		
